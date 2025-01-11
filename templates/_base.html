@@ -4,15 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .navbar {
+            background-color: #90EE90; /* Ajusta el tono de verde según tus preferencias */
+            padding: 1rem; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            margin: 0; 
+        }
+    </style>
 </head>
 <body>
-    <a href="{% url 'blog-home' %}"><h1>Blog Nov</h1></a>
-
-    <form method="post" action="{% url 'logout' %}">
-
-        {% csrf_token %}
-        <input type="submit" value="Logout">
-    </form>
+    <nav class="navbar"> 
+        <a href="{% url 'blog-home' %}"><h1>Blog Nov</h1></a>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <input type="submit" value="Logout" class="btn btn-secondary"> 
+        </form>
+    </nav>
 
     {% block content %}
     {% endblock content %}
